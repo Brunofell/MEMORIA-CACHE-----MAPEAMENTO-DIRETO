@@ -1,8 +1,5 @@
 # Tópicos 1 e 2:
 
-tam_cache = int(input("- Digite o tamanho da memória cache: "))
-
-
 def inicializaCache(tam_cache):
     posicaoM = []
     posicaoC = []
@@ -19,20 +16,29 @@ def inicializaCache(tam_cache):
         print(c)
 
 
-
 # Tópico 3
+
 def imprimirCache():
     print("TAMANHO DA CACHE: ", tam_cache)
     inicializaCache(tam_cache)
 
 
+# Tópico 4
+
+def mapeamento_direto(tam_cache, pos_memoria):
+    posicao = int(input("QUANTAS POSIÇÃO DA MEMÓRIA VOCÊ DESEJA ACESSAR: "))
+    for c in range(posicao):
+        valor = int(input("- QUAL POSIÇÃO NA MEMÓRIA VOCÊ DESEJA ACESSAR: "))
+        pos_memoria.append(valor)
+    print(pos_memoria)
+    print(tam_cache)
+
+
+tam_cache = int(input("- Digite o tamanho da memória cache: "))
+
 imprimirCache()
 
+pos_memoria = []
 
-# Tópico 4
-# def mapeamento_direto(tam_cache, pos_memoria):
-#
-#
-#
-#
-#
+mapeamento_direto(tam_cache, pos_memoria)
+
