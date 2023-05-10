@@ -29,22 +29,21 @@ def imprimirCache():
 # Tópico 4
 
 def mapeamento_direto(pos_memoria):
-    contador = 0
     miss = 0
     hit = 0
     posicao = int(input("QUANTAS POSIÇÃO DA MEMÓRIA VOCÊ DESEJA ACESSAR: "))
     for c in range(posicao):
-        valor = int(input("- QUAL POSIÇÃO NA MEMÓRIA VOCÊ DESEJA ACESSAR: "))
+        valor = int(input("- QUAL VALOR NA MEMÓRIA VOCÊ DESEJA ACESSAR: "))
         pos_memoria.append(valor)
     for item in pos_memoria:
         if item in posicaoM:
             print(f"{item}: HIT")
             hit += 1
         else:
+            posicao_cache = item % tam_cache
             print(f"{item}: MISS")
             miss += 1
-            posicaoM[contador] = item
-            contador += 1
+            posicaoM[posicao_cache] = item
 
     taxa_acertos = (hit/posicao) * 100
     imprimirCache()
@@ -57,9 +56,11 @@ def mapeamento_direto(pos_memoria):
 
 
 tam_cache = int(input("- Digite o tamanho da memória cache: "))
+
 pos_memoria = []
 posicaoM = []
 posicaoC = []
+
 inicializaCache(tam_cache)
 
 mapeamento_direto(pos_memoria)
